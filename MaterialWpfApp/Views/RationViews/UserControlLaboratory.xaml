@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="MaterialWpfApp.Views.RationViews.UserControlLaboratory"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterialWpfApp.Views.RationViews"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+              Height="530" Width="700">
+    <Grid Background="White">
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Результаты лабораторных анализов кормов" HorizontalAlignment="Center" Grid.Row="0"
+                           Style="{StaticResource HeaderText}" Margin="0 20 0 0"/>
+
+                <DataGrid x:Name="grid" ItemsSource="{Binding List}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"
+                      materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="15 10"
+                          Grid.Row="1" Margin="30" BorderBrush="Gray" BorderThickness="2">
+
+                    <DataGrid.Columns>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Name}" 
+                                                               Header="Корм" Width="200"                                                     
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            <materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontSize" Value="14"/>
+                                    <Setter Property="TextAlignment" Value="Center"/>
+                                </Style>
+                            </materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                        </materialDesign:MaterialDataGridTextColumn>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Sv}"
+                                                               Header="СВ(кг)"                                                      
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            <materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontSize" Value="14"/>
+                                    <Setter Property="TextAlignment" Value="Center"/>
+                                </Style>
+                            </materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                        </materialDesign:MaterialDataGridTextColumn>
+
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Sp}"
+                                                               Header="СП(г)"                                                      
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            <materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontSize" Value="14"/>
+                                    <Setter Property="TextAlignment" Value="Center"/>
+                                </Style>
+                            </materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                        </materialDesign:MaterialDataGridTextColumn>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Sg}"
+                                                               Header="СЖ(г)"                                                      
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            <materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontSize" Value="14"/>
+                                    <Setter Property="TextAlignment" Value="Center"/>
+                                </Style>
+                            </materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                        </materialDesign:MaterialDataGridTextColumn>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Sk}"
+                                                               Header="СК(г)"                                                      
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            <materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontSize" Value="14"/>
+                                    <Setter Property="TextAlignment" Value="Center"/>
+                                </Style>
+                            </materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                        </materialDesign:MaterialDataGridTextColumn>
+
+
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+
+                <Button MinWidth="150" Command="{Binding NextPageCommand}" Grid.Row="2" Margin="30" HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <TextBlock Text="Рассчитать" Margin="10 0 10 0" FontSize="16" FontWeight="Bold"/>
+                        <materialDesign:PackIcon Kind="Calculator" VerticalAlignment="Center" Height="25" Width="30"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button MinWidth="150" Command="{Binding PreviewPageCommand}" Grid.Row="2" Margin="30" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Height="25" Width="30"/>
+                        <TextBlock Text="Назад" Margin="10 0 10 0" FontSize="16" FontWeight="Bold"/>
+                    </StackPanel>
+
+                </Button>
+
+
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

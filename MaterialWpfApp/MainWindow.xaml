@@ -3,10 +3,109 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MaterialWpfApp"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        mc:Ignorable="d" Height="600" Width="950" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+
+
+
+    <DockPanel LastChildFill="True" Background="#FFE" MouseDown="Grid_MouseDown">
+        <StackPanel DockPanel.Dock="Top">
+            <Grid Background="#ff0069c0" Height="30">
+                <Button HorizontalAlignment="Right" Style="{x:Null}"
+                        Height="30" Width="30" Click="Button_Click"
+                        Background="#ff0069c0" BorderThickness="0">
+                    <materialDesign:PackIcon HorizontalAlignment="Center" VerticalAlignment="Center"  Height="30" Width="30"
+                                         Foreground="White" Kind="Close"/>
+                </Button>
+            </Grid>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlid" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+                    <Border Grid.Row="0" BorderThickness="0 0 0 5" BorderBrush="#ff0069c0" Margin="100 0 100 0">
+                        <TextBlock x:Name="txtNamePage" Text="Рацион" HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Style="{StaticResource MaterialDesignDisplay1TextBlock}" Margin="0 0 0 5" Foreground="#FF222222" FontWeight="Bold"/>
+                    </Border>
+                </materialDesign:TransitioningContent>
+                <Grid x:Name="GridPrincipal" Grid.Row="1">
+
+                </Grid>
+                <materialDesign:DialogHost  Grid.RowSpan="2" x:Name="dialog" Grid.Row="0" Grid.Column="0" >
+                    <materialDesign:DialogHost.DialogContent>
+                        <Grid Margin="20" Width="300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Предупреждение!" HorizontalAlignment="Center" Style="{StaticResource HeaderText}"/>
+                            <TextBlock TextWrapping="Wrap" FontWeight="Bold" Text="   Перед началом работы с разделами Логистика и Экономика вы должны рассчитать рацион."
+                                       Grid.Row="1" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+                            <Button Content="Продолжить" Grid.Row="2" Margin="0 20 0 0"
+                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=dialog}"/>
+                        </Grid>
+                    </materialDesign:DialogHost.DialogContent>
+                </materialDesign:DialogHost>
+                <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"                     
+                         Value="0" x:Name="indicators"
+                         IsIndeterminate="False" Width="100" Height="100" 
+                         Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="12 12 12 12"/>
+            </Grid>
+            <Grid Width="250" Background="#FF222222">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                    <Grid x:Name="GridCursor" Margin="0 100 0 0" Background="#ff0069c0" Width="10" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60"/>
+                </materialDesign:TransitioningContent>
+                <ListView  x:Name="ListViewMenu" SelectionChanged="ListViewMenu_SelectionChanged" SelectedIndex="0" 
+                      Margin="0 100" Foreground="LightGray" FontFamily="Champagne &amp; Limousines" FontSize="18" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          >
+
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Calculator" Height="30" Width="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Рацион" VerticalAlignment="Center" Margin="10 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Store" Height="30" Width="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Логистика" VerticalAlignment="Center" Margin="10 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Database" Height="30" Width="30" VerticalAlignment="Center" Margin="5"/>
+                            <TextBlock Text="Экономика" VerticalAlignment="Center" Margin="10 0"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+            <Image Source="/cow.png" Margin="65,412,20,24"/>
+            <Image Source="/cow.png" Margin="10,343,75,93"/>
+
+            <TextBlock Text="Ration" FontSize="34" Margin="50,50,50,482" Foreground="#575756" FontWeight="Black"/>
+            <TextBlock Text="Cow" FontSize="34" Margin="20,20,20,482" Foreground="#575756" FontWeight="Black"/>
+            <materialDesign:PackIcon Kind="Cow" Foreground="#575756" Margin="174,31,0,0" Height="57" Width="56" />
+        </Grid>
+
+
+    </DockPanel>
 </Window>

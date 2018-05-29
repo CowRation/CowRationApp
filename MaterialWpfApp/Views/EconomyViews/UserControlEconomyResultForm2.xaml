@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="MaterialWpfApp.Views.EconomyViews.UserControlEconomyResultForm2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterialWpfApp.Views.EconomyViews"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="530" Width="700">
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" >
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Планируемые показатели" Style="{StaticResource HeaderText}" HorizontalAlignment="Center"/>
+
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="0 25 0 0">
+                    <TextBlock Text="Выручка:" Style="{StaticResource CaptionText}" Margin="10 20 0 10"/>
+                    <TextBlock Text="{Binding Receipts, StringFormat='0.00'}" Style="{StaticResource ResultText}" Margin="10 20 0 10"/>
+                    <TextBlock Text="(тыс/руб)" Style="{StaticResource CaptionText}" Margin="10 20 0 10"/>
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Margin="0 25 0 0">
+                    <TextBlock Text="Прибыль до уплаты налогов:" Style="{StaticResource CaptionText}" Margin="10 20 0 10"/>
+                    <TextBlock Text="{Binding Income, StringFormat='0.00'}" Style="{StaticResource ResultText}" Margin="10 20 0 10"/>
+                    <TextBlock Text="(тыс/руб)" Style="{StaticResource CaptionText}" Margin="10 20 0 10"/>
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Margin="0 25 0 0">
+                    <TextBlock Text="Рентабельность в сутки:" Style="{StaticResource CaptionText}" Margin="10 20 0 10"/>
+                    <TextBlock Text="{Binding Profitability, StringFormat='0.00'}" Style="{StaticResource ResultText}" Margin="10 20 0 10"/>
+                    <TextBlock Text="%" Style="{StaticResource CaptionText}" Margin="10 20 0 10"/>
+                </StackPanel>
+
+
+              
+
+                <Button MinWidth="150" Command="{Binding PreviewPageCommand}" HorizontalAlignment="Left" Grid.Row="5" Margin="30 30" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Height="25" Width="30"/>
+                        <TextBlock Text="Назад" Margin="10 0 10 0" FontSize="16" FontWeight="Bold"/>
+                    
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

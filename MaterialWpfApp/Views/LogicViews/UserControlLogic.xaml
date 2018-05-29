@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="MaterialWpfApp.Views.LogicViews.UserControlLogic"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterialWpfApp.Views.LogicViews"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+            Height="530" Width="700">
+    <Grid Background="White">
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" >
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Исходные данные" Style="{StaticResource HeaderText}"
+                           HorizontalAlignment="Center" Grid.ColumnSpan="3" Margin="20"/>
+
+
+                <DataGrid x:Name="grid" ItemsSource="{Binding Storages}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"
+                      materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="60 10"
+                          Grid.Row="1">
+                    <DataGrid.Columns>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Name}"
+                                                               Header="Вид корма"                                
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            <materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontSize" Value="16"/>
+                                    <Setter Property="TextAlignment" Value="Center"/>
+                                </Style>
+                            </materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                        </materialDesign:MaterialDataGridTextColumn>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Value}"
+                                                               Header="Факт(т)"                                                        
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                            <materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontSize" Value="16"/>
+                                    <Setter Property="TextAlignment" Value="Center"/>
+                                </Style>
+                            </materialDesign:MaterialDataGridTextColumn.ElementStyle>
+                        </materialDesign:MaterialDataGridTextColumn>
+
+
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+               
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Margin="10">
+                    <TextBlock Text="Период кормления" Grid.Row="2" Style="{StaticResource CaptionText}"/>
+                    <TextBox  Width="50" Margin="10 0" Text="{Binding Day}" FontSize="16"/>
+                    <TextBlock Text="дней" Style="{StaticResource CaptionText}"/>
+                </StackPanel>
+
+                <Button Command="{Binding NextPageCommand}" Grid.Row="4" Content="Рассчитать" FontSize="16" Margin="50 30"/>
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

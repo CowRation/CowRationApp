@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="MaterialWpfApp.Views.UserControlMilkData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterialWpfApp.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+            Height="530" Width="700">
+    <Grid >
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft, Duration=0:0:0.8}">
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Категория кормления" Style="{StaticResource HeaderText}" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="40 30 40 0">
+                    <TextBlock Text="Вес" HorizontalAlignment="Center"
+                    Style="{StaticResource CaptionText}"/>
+                    <TextBox Text="535" TextAlignment="Center"
+                         Margin="20 0" Width="100" FontSize="18" HorizontalAlignment="Center"/>
+                    <TextBlock Text="(кг)" HorizontalAlignment="Center"
+                          Style="{StaticResource CaptionText}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="40 0">
+                    <TextBlock Text="Удой" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                    Style="{StaticResource CaptionText}"/>
+                    <Slider Minimum="10" Maximum="30" Width="400" Value="{Binding Quantity, Mode=TwoWay}" Margin="10 0 0 0" Style="{StaticResource MaterialDesignDiscreteSlider}"/>
+                    <TextBlock x:Name="txt" Text="{Binding Quantity, Mode=TwoWay}" Style="{StaticResource ResultText }" Margin="10 0" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="(кг)" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                          Style="{StaticResource CaptionText}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="40 20">
+                    <TextBlock Text="Жирность" HorizontalAlignment="Center"
+                    Style="{StaticResource CaptionText}"/>
+                    <TextBox Text="{Binding Feet}" TextAlignment="Center"
+                         Margin="20 0" Width="100" FontSize="18" HorizontalAlignment="Center"/>
+                    <TextBlock Text="(%)" HorizontalAlignment="Center"
+                          Style="{StaticResource CaptionText}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="40 20">
+                    <TextBlock Text="Белок" HorizontalAlignment="Center"
+                    Style="{StaticResource CaptionText}"/>
+                    <TextBox Text="{Binding Protein}" TextAlignment="Center"
+                         Margin="20 0" Width="100" FontSize="18" HorizontalAlignment="Center"/>
+                    <TextBlock Text="(%)" HorizontalAlignment="Center"
+                          Style="{StaticResource CaptionText}"/>
+                </StackPanel>
+
+                <Button MinWidth="150" Command="{Binding PreviewPageCommand}" HorizontalAlignment="Left" Grid.Row="5" Margin="30 30" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Height="25" Width="30"/>
+                        <TextBlock Text="Назад" Margin="10 0 10 0" FontSize="16" FontWeight="Bold"/>
+
+                    </StackPanel>
+                </Button>
+
+                <Button MinWidth="150" Command="{Binding NextPageCommand}" HorizontalAlignment="Right" Grid.Row="5" Margin="30 30" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <TextBlock Text="Далее" Margin="10 0 10 0" FontSize="16" FontWeight="Bold"/>
+                        <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Height="25" Width="30"/>
+                    </StackPanel>
+                </Button>
+
+
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

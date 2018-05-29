@@ -2,8 +2,60 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MaterialWpfApp"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+
+
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Red.xaml" />-->
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <!--Стили для заголовка-->
+            <Style x:Key="HeaderText" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="Foreground" Value="#ff0069c0"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <!--Стили для названий-->
+            <Style x:Key="CaptionText" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="#ff0069c0"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+            
+            <!--Стили для тестовых полей вывода-->
+            <Style x:Key="ResultText" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="#FF222222"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="txtBox" TargetType="{x:Type TextBox}">
+                <Setter Property="Foreground" Value="#FF222222"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+
+
+            <!--Стили для ячеек DataGrid-->
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+
+            </Style>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

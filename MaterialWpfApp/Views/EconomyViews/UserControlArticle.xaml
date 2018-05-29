@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="MaterialWpfApp.Views.EconomyViews.UserControlArticle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterialWpfApp.Views.EconomyViews"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+                Height="530" Width="700">
+   
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide">
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Text="Затраты" Style="{StaticResource HeaderText}"
+                          HorizontalAlignment="Center" Margin="0 20"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                    <TextBlock Text="Затраты на общий объем молока" Style="{StaticResource CaptionText}"/>
+                    <TextBox Margin="10 0" FontSize="16" Width="100" VerticalAlignment="Center" Text="{Binding Expenses, Mode=TwoWay}" />
+                    <TextBlock Text="(тыс/руб.)" />
+                </StackPanel>
+
+                <DataGrid x:Name="grid" ItemsSource="{Binding List}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"
+                      materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="20 10"
+                          Grid.Row="2">
+                    <DataGrid.Columns>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Article}"
+                                                               Header="Статья затрат"                                                      
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Value}"
+                                                               Header="Сумма(руб)"                                                        
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Percenent, StringFormat='0.00'}"
+                                                               Header="%"                                                        
+                                                               EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+                <Button MinWidth="150" Command="{Binding PreviewPageCommand}" HorizontalAlignment="Left" Grid.Row="3" Margin="30 30" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Height="25" Width="30"/>
+                        <TextBlock Text="Назад" Margin="10 0 10 0" FontSize="16" FontWeight="Bold"/>
+
+                    </StackPanel>
+                </Button>
+
+                <Button MinWidth="150" Command="{Binding NextPageCommand}" HorizontalAlignment="Right" Grid.Row="3" Margin="30 30" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <TextBlock Text="Рассчитать" Margin="10 0 10 0" FontSize="16" FontWeight="Bold"/>
+                        <materialDesign:PackIcon Kind="Calculator" VerticalAlignment="Center" Height="25" Width="30"/>
+                    </StackPanel>
+                </Button>
+
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>

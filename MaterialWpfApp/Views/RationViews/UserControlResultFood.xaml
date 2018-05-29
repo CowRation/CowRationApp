@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="MaterialWpfApp.Views.RationViews.UserControlResultFood"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterialWpfApp.Views.RationViews"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+                Height="530" Width="700">
+    <Grid Background="White">
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft, Duration=0:0:0.8}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Показатели рациона" Margin="0 20 0 0"
+                           Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center"
+                           Style="{StaticResource HeaderText}"/>
+
+                <!--/////////////////////// -->
+                <TextBlock Text="Молокообразование ЧЭЛ" 
+                           Grid.Row="1" Grid.Column="0" Margin="30 10"
+                           Style="{StaticResource CaptionText}"/>
+                <TextBlock Text="{Binding MilkFormation, StringFormat='0.00'}"
+                           Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
+                           Style="{StaticResource ResultText}"/>
+                <TextBlock Text="(кг)" 
+                           Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                           Style="{StaticResource CaptionText}"/>
+                <!--/////////////////////// -->
+                
+                
+
+                <!--/////////////////////// -->
+                <TextBlock Text="Молокообразование nXP" 
+                           Grid.Row="2" Grid.Column="0" Margin="30 10"
+                           Style="{StaticResource CaptionText}"/>
+                <TextBlock Text="{Binding MilkXp, StringFormat='0.00'}" 
+                           Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"
+                           Style="{StaticResource ResultText}"/>
+                <TextBlock Text="(кг)" 
+                           Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"
+                           Style="{StaticResource CaptionText}"/>
+                <!--/////////////////////// -->
+
+                
+                
+                <!--/////////////////////// -->
+                <TextBlock Text="Потребление СВ объемистых кормов" 
+                           Grid.Row="3" Grid.Column="0" Margin="30 10"
+                           Style="{StaticResource CaptionText}"/>
+                <TextBlock Text="{Binding MilkSv, StringFormat='0.00'}"
+                           Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"
+                           Style="{StaticResource ResultText}"/>
+                <TextBlock Text="(кг)" 
+                           Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"
+                           Style="{StaticResource CaptionText}"/>
+                <!--/////////////////////// -->
+
+                <!--/////////////////////// -->
+                <TextBlock Text="Клетчатка в СВ" 
+                           Grid.Row="4" Grid.Column="0" Margin="30 10"
+                           Style="{StaticResource CaptionText}"/>
+                <TextBlock Text="{Binding MilkCellulose, StringFormat='0.00'}"
+                           Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"
+                           Style="{StaticResource ResultText}"/>
+                <TextBlock Text="(%)" 
+                           Grid.Row="4" Grid.Column="2" VerticalAlignment="Center"
+                           Style="{StaticResource CaptionText}"/>
+                <!--/////////////////////// -->
+
+                <!--/////////////////////// -->
+                <TextBlock Text="Са:Р" 
+                           Grid.Row="5" Grid.Column="0" Margin="30 10"
+                           Style="{StaticResource CaptionText}"/>
+                <TextBlock Text="{Binding MilkCa, StringFormat='0.00'}"
+                           Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"
+                           Style="{StaticResource ResultText}"/>
+                <TextBlock Text="(%)" 
+                           Grid.Row="5" Grid.Column="2" VerticalAlignment="Center"
+                           Style="{StaticResource CaptionText}"/>
+                <!--/////////////////////// -->
+
+                <!--/////////////////////// -->
+                <TextBlock Text="Влажность кормосмеси" 
+                           Grid.Row="6" Grid.Column="0" Margin="30 10"
+                           Style="{StaticResource CaptionText}"/>
+                <TextBlock Text="{Binding Humidity, StringFormat='0.00'}"
+                           Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"
+                           Style="{StaticResource ResultText}"/>
+                <TextBlock Text="(%)" 
+                           Grid.Row="6" Grid.Column="2" VerticalAlignment="Center"
+                           Style="{StaticResource CaptionText}"/>
+                <!--/////////////////////// -->
+
+                
+
+                <Button MinWidth="150" Command="{Binding PreviewPageCommand}" Grid.Row="7" VerticalAlignment="Bottom" Margin="30" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Height="25" Width="30"/>
+                        <TextBlock Text="Назад" Margin="10 0 10 0" FontSize="16" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+
+            </Grid>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>
