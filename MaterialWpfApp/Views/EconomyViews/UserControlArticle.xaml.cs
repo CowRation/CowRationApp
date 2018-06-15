@@ -16,7 +16,7 @@ namespace MaterialWpfApp.Views.EconomyViews
             this.DataContext = new ArticleViewModel(date);
 
 
-            TrainsitionigContentSlide.OpeningEffect = new TransitionEffect(transition, new TimeSpan(0, 0, 0, 0, 800))"";
+            TrainsitionigContentSlide.OpeningEffect = new TransitionEffect(transition, new TimeSpan(0, 0, 0, 0, 800));
 
 
         }
